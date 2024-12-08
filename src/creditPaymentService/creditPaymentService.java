@@ -1,13 +1,13 @@
-package creditPaymentService;
+package CreditPaymentService;
 
-public class creditPaymentService {
+public class CreditPaymentService {
 
     public int calculate (double credit, double procent, int years) {
 
-        double one = (procent / 12 / 100);
-        double Two = (1 + one);
-        double three = Math.pow(Two, years);
-        double payment =  credit * one * three / (three - 1);
+        double quarterlyInterestRate = (procent / 12 / 100);
+        double onePlusInterestRate = (1 + quarterlyInterestRate);
+        double monthlyInterestFactor = Math.pow(onePlusInterestRate, years);
+        double payment =  credit * quarterlyInterestRate * monthlyInterestFactor / (monthlyInterestFactor - 1);
 
         return  (int) payment;
 
